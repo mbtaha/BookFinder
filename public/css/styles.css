@@ -1,0 +1,457 @@
+/*///////////////////////////////////////////////////////////////// common css /////////////////////////////////////////////////////////////////////////////*/
+header{
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+header > a{
+  background-color: black;
+  border-radius: 0.5rem;
+  padding: 1.5rem 0.5rem;
+  font-size: 1.3rem;
+  font-family: sans-serif;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  /* transition: 0.5s; */
+}
+
+header > a:hover{
+  text-decoration: none;
+  color: white;
+}
+
+.top-form{
+  display: flex;
+  justify-content: center;
+  flex-direction: row; /* default direction */
+}
+
+.textField{
+  min-width: 15.62rem;
+  outline: none;
+  border: 0.0625rem solid #dfe1e5;
+  border-top-left-radius: 1.5rem;
+  border-bottom-left-radius: 1.5rem;
+  border-right: none;
+  padding-left: 0.9rem;
+  height: 3rem;
+  font-size: 1rem;
+}
+
+.textField:focus{ /* removes blue outline after click */
+  outline:0;
+}
+
+.searchButton{
+  background-color: white;
+  color: black;
+  outline: none;
+  border: 0.0625rem solid #dfe1e5;
+  border-left: none;
+  border-top-right-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+  width: 2.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.searchButton:hover{
+  border: 0.0625rem solid #dfe1e5;
+}
+
+.searchButton:focus{
+  outline: 0;
+}
+
+.footer{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  box-shadow: 0 1px 3px black;
+  background-color: #f2f2f2;
+}
+
+.footer-p{
+  margin: 0;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  font-family: sans-serif;
+  text-align: center;
+  color: #5F6368;
+  font-size: 0.7rem;
+}
+/*//////////////////////////////////////////////// styling applied to index.ejs //////////////////////////////////////////////////////////*/
+
+.body-index-page{
+  -webkit-overflow-scrolling: touch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  margin-top: 20%;
+  background-color: #faf5ef;
+}
+
+.wrapper1{
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.wrapper2{
+  min-width: 300px;
+}
+
+.wrapper2 > p{
+  font-style: italic;
+  font-size: 0.8rem;
+  color: #5F6368;
+  text-align: center;
+}
+/*/////////////////////////////////////////////// style applied to books.ejs ///////////////////////////////////////////////////////////////*/
+
+.body-books-page, .body-unsuccessful-page{
+  background-color: #faf5ef;
+}
+
+.top-wrapper > .top-wrapper-container > .header-wrapper{
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: 1s;
+}
+/* -------------------------------------------Classes created using Javascript-------------------------------------------------- */
+
+.top-wrapper > .topWrapperContainer{ /* .topWrapperContainer created in books.js */
+  background-color: #faf5ef;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 0px 6px;
+}
+.top-wrapper > .topWrapperContainer > .header-wrapper{ /* .topWrapperContainer created in books.js */
+  margin-top: 0;
+  margin-bottom: 0;
+  height: 0;
+  transition: 0.5s;
+}
+.topWrapperContainer > .header-wrapper > header > a{ /* .topWrapperContainer created in books.js */
+  font-size: 0;
+  border-radius: 0;
+  padding: 0;
+  transition: 1s;
+}
+.topWrapperContainer > #bookOptionsBar{ /* .topWrapperContainer created in books.js */
+  padding: 0.5rem 1rem 0rem 1rem;
+  transition: 1.5s 0s;
+}
+.topWrapperContainer > #bookOptionsBar > .book-options-wrapper{ /* .topWrapperContainer created in books.js */
+  padding-top: 0;
+  transition: 1.5s 0s;
+}
+.topWrapperContainer > #bookOptionsBar > .book-options-wrapper > .book-options{ /* .topWrapperContainer created in books.js */
+  padding-top: 0;
+  transition: 1.5s 0s;
+}
+.top-wrapper > .topWrapperContainer-Placeholder{ /* .topWrapperContainer-Placeholder created in books.js */
+  height: 260px;
+}
+/* -------------------------------------------------------------------------------------------------------------------------------------- */
+
+.textField-books{
+  flex-grow: 0.7;
+  -ms-flex: 0.7;
+}
+
+/* common styling between books.ejs & unsuccessful.ejs */
+      .top-wrapper{
+        padding: 1rem;
+        padding-top: 0;
+      }
+
+      .top-wrapper > .top-wrapper-container > .book-options-bar{
+        padding-bottom: 0.5rem;
+        padding-top: 2rem;
+        display: flex;
+        flex-wrap: wrap;
+        /* transition: 2s; */
+      }
+
+      .top-wrapper > .top-wrapper-container > .book-options-bar > .searchBar{
+        width: 100%;
+      }
+
+      .top-wrapper > .top-wrapper-container > .book-options-bar > .searchBar > .top-form{
+        margin-bottom: 0.5rem;
+      }
+
+      .top-wrapper > .top-wrapper-container > .book-options-bar > .searchBar > form > button:hover{
+        border: 0.0625rem solid #dfe1e5;
+      }
+
+      .top-wrapper > .top-wrapper-container > .book-options-bar > .book-options-wrapper{
+        display: flex;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        flex-basis: 100%;
+        padding-top: 0.5rem;
+
+      }
+
+      .top-wrapper > .top-wrapper-container > .book-options-bar > .book-options-wrapper > .bookType{
+        margin-left: auto;
+      }
+
+      .top-wrapper > .top-wrapper-container > .book-options-bar > .book-options-wrapper > .bookSort{
+        margin-right: auto;
+      }
+
+      .top-wrapper > .top-wrapper-container > .book-options-bar > .dropdown-searchbar > form > .textField{
+        min-width: 15rem;
+      }
+
+      .book-options-wrapper > .bookType, .documentType, .bookSort{
+        padding: 0.5rem;
+      }
+
+      .dropDown{
+        box-shadow: 0 1px 3px black;
+        border-radius: 5px;
+        background-color: #faf5ef;
+        text-align-last: center;
+        width: 11rem;
+      }
+
+      .dropDown:hover{
+        cursor: pointer;
+      }
+
+      .dropDown:focus{ /* removes blue outline after click */
+        outline:0;
+       }
+/* //////////////////////////////////////////////////////////////////////////////////// */
+
+.top-wrapper > .book-info-wrapper{
+  display: flex;
+  padding: 0.5rem;
+  flex-direction: column; /*(1)*/
+  justify-content: center; /*(1)*/
+  align-items: center; /*(1)*/
+}
+
+/*(1) in order to center a column both justify-content and align-items have to be used*/
+
+.book-info-wrapper > .bookInformation{
+  width: 19rem;
+  min-height: 16rem;
+  margin: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 1px 6px;
+  border-radius: 8px;
+  background-color: white;
+}
+
+.book-info-wrapper > .bookInformation > .titleWrapper{
+  border-bottom: 1px solid #DFE1E5;
+  align-items: center;
+}
+
+.book-info-wrapper > .bookInformation > .titleWrapper > p{
+  color: black;
+  text-align: center;
+  font-weight: bold;
+}
+
+.book-info-wrapper > .bookInformation > .wrapper{
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.book-info-wrapper > .bookInformation > .wrapper > .thumbnail{
+  margin-top: 1.5rem;
+  float: left;
+  width: 111px;
+}
+.verticleLine{
+  float: right;
+  border-left: 2px solid #105e62;
+  height: 150px;
+  width: 0;
+}
+
+.book-info-wrapper > .bookInformation > .wrapper > .thumbnail > a > img{
+  width: 100px;
+  height: 150px;
+}
+
+.book-info-wrapper > .bookInformation > .wrapper > .bookDetails{
+  width: 9.5rem;
+  margin-left: 7.5rem;
+  margin-top: 1rem;
+  overflow: hidden;
+  text-align: center;
+  word-wrap: normal;
+}
+
+table{
+  width: 100%;
+  table-layout: fixed;
+}
+
+td, th, span{
+  text-align: left;
+  font-size: 0.95rem;
+  word-wrap: break-word;
+}
+
+tr > td > #bookLink, #buyLink{
+  font-size: 0.9rem;
+}
+
+h6{
+  font-size: 0.9rem;
+  color: black;
+}
+
+.bottomWrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.bottomWrapper > form > button{
+  border: none;
+  background-color: #f2f2f2;
+  color: #5F6368;
+  font-family: sans-serif;
+  padding: 0 1rem;
+  height: 2.3125rem; /*36px*/
+  border-radius: 0.25rem;
+  margin: 0.5rem;
+}
+
+.footer-books-page{
+  width: 100%;
+  box-shadow: 0 1px 3px black;
+  background-color: #f2f2f2;
+}
+/*///////////////////////////////////////////////////////// style applied to unsuccessful.ejs //////////////////////////////////////////////////*/
+
+h1{
+  font-family: sans-serif;
+  color: #5F6368;
+  font-weight: normal;
+  text-align: center;
+}
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+@media only screen and (min-width: 360px){
+  .top-wrapper > .book-info-wrapper > .bookInformation{
+    width: 21rem;
+  }
+
+  .book-info-wrapper > .bookInformation > .wrapper > .bookDetails{
+    width: 11.5rem;
+  }
+}
+
+@media only screen and (min-width: 375px){
+  .top-wrapper > .book-info-wrapper > .bookInformation{
+    width: 22rem;
+  }
+
+  .book-info-wrapper > .bookInformation > .wrapper > .bookDetails{
+    width: 12.5rem;
+  }
+}
+
+@media only screen and (min-width: 400px){
+  .top-form > .textField-1{
+    min-width: 350px
+  }
+}
+
+@media only screen and (min-width: 450px){
+  .top-form > .textField-1{
+    min-width: 400px;
+  }
+}
+
+@media only screen and (min-width: 500px){
+  .top-form > .textField-1{
+    min-width: 400px;
+  }
+
+  .top-wrapper > .book-info-wrapper > .bookInformation{
+    width: 30rem;
+  }
+
+  .book-info-wrapper > .bookInformation > .wrapper > .thumbnail{
+    width: 173px; /* by increasing the thumbnail div width we can accommodate the vertical line*/
+  }
+  .verticleLine{
+    float: right;
+    border-left: 2px solid #105e62;
+    height: 260px;
+    width: 0;
+  }
+
+  .top-wrapper > .top-wrapper-container > .book-options-bar > .dropdown-searchbar > form > .textField{
+    min-width: 20rem;
+  }
+
+  .book-info-wrapper > .bookInformation > .wrapper > .thumbnail{
+    margin-top: 1.3rem;
+  }
+
+  .book-info-wrapper > .bookInformation > .wrapper > .thumbnail > a > img{
+    width: 160px;
+    height: 260px;
+  }
+
+  .book-info-wrapper > .bookInformation > .wrapper > .bookDetails{
+    margin-left: 11.5rem;
+  }
+}
+
+@media only screen and (min-width: 750px){
+  > header > a{
+     font-size: 1.5rem;
+  }
+
+  .body-index-page{
+    margin-top: 10%;
+  }
+
+  .top-form > .textField-1{
+    min-width: 600px;
+    flex-grow: 0.3;
+  }
+
+  .book-info-wrapper > .bookInformation > .wrapper > .bookDetails{
+    width: 16.5rem;
+  }
+}
+
+@media only screen and (min-width: 1024px){
+  .top-wrapper > .book-info-wrapper > .bookInformation{
+    width: 39rem;
+  }
+
+  .top-wrapper > .book-options-bar > .searchBar > .top-form > .textField{
+    min-width: 40rem;
+    flex-grow: 0.1;
+    -ms-flex: 0.1;
+  }
+}

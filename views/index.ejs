@@ -1,0 +1,26 @@
+<%- include('header') %>
+
+  <body class="body-index-page">
+
+  <header>
+      <a href="https://find-your-book.herokuapp.com/">Book Finder</a>
+  </header>
+
+  <!-- use following link when running app on local host: http://localhost:3000/ -->
+
+  <div class="wrapper1">
+    <form class="top-form top-form-1" action="/books" method="post">
+      <input class="textField textField-1" type="text" name="bookTitle" value="" placeholder="" autofocus required>
+      <button type="submit" class="searchButton fas fa-search" name="searchButton_home_page" value="Search"></button>
+    </form>
+  </div>
+
+  <div class="wrapper2">
+    <p>Search results generated through Google Books API</p>
+  </div>
+
+  <footer class="footer">
+    <p class="footer-p">Website by <em>Mohammed Taha</em></p>
+  </footer>
+
+<%- include('footer') %>

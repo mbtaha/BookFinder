@@ -1,0 +1,183 @@
+<%- include('header') %>
+
+  <body class="body-books-page">
+
+  <div class="top-wrapper">
+    <div class="top-wrapper-container">
+      <div class="header-wrapper">
+        <header>
+          <a href="https://find-your-book.herokuapp.com/">Book Finder</a>   <!-- use following link when running app on local host: http://localhost:3000/ -->
+        </header>
+      </div>
+      <div class="book-options-bar" id="bookOptionsBar">
+        <div class="searchBar">
+          <form class="top-form" action="/books" method="post">
+            <input type="text" class="textField textField-books" name="bookTitle" value="<%= bookTitle %>" placeholder="Search" required>
+            <button type="submit" class="searchButton fas fa-search" name="searchButton_books_page" value="Search"></button>
+          </form>
+        </div>
+        <div class="book-options-wrapper">
+          <div class="bookType book-options">
+            <form class="form1" action="/books" method="post">
+              <input type="text" name="bookTitle" value="<%= bookTitle %>" hidden>
+              <select class="dropDown dropDown1" name="bookOptions">
+                <option value="anyBook">Any Books</option>
+                <option value="free-ebooks">Free Books</option>
+                <option value="paid-ebooks">Paid Books</option>
+                <option value="eBooks">eBooks</option>
+              </select>
+            </form>
+          </div>
+          <div class="documentType book-options">
+            <form class="form2" action="/books" method="post">
+              <input type="text" name="bookTitle" value="<%= bookTitle %>" hidden>
+              <select class="dropDown dropDown2" name="bookOptions">
+                <option value="all">Any document</option>
+                <option value="magazines">Magazines</option>
+                <option value="books">Books</option>
+              </select>
+            </form>
+          </div>
+          <div class="bookSort book-options">
+            <form class="form3" action="/books" method="post">
+              <input type="text" name="bookTitle" value="<%= bookTitle %>" hidden>
+              <select class="dropDown dropDown3" name="bookOptions">
+                <option value="relevance">Sorted by relevance</option>
+                <option value="newest">Sorted by date</option>
+              </select>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- all the option values above are predefined in the Google Books API -->
+
+    <!--
+    .top-wrapper-container-Placeholder prevents the .book-info-wrapper content from jumping up
+    when the position of .btop-wrapper-container becomes fixed.
+
+    .top-wrapper-container-Placeholder will have the SAME HEIGHT as the .top-wrapper-container
+
+    Jumping effect happens because fixed elements are taken out of the flow of the DOM.
+
+    Once element1 becomes detached from the DOM it leaves behind an empty space causing element2
+    to jump up to occupy that space.
+
+    So the trick is to creating a placeholder container with the SAME HEIGHT as the
+    detached container.
+    -->
+    <div class="top-wrapper-container-Placeholder"></div> <!-- Place holder for top-wrapper-container-->
+
+
+
+      <% let i=0 %>
+
+      <div class="book-info-wrapper">
+        <% for(i=0; i<number_of_books.length; i++){ %>
+            <div class="bookInformation">
+                <div class="titleWrapper">
+                  <p><%= title[i] %></p>
+                </div>
+                <div class="wrapper">
+                  <div class="thumbnail">
+                    <a href="<%= bookLinks[i] %>"><img src="<%= thumbnail[i] %>" alt=""></a>
+                    <div class="verticleLine"></div>
+                  </div>
+                  <div class="bookDetails">
+                    <table>
+                      <% if(author[i] != "not available"){%>
+                        <tr>
+                          <th>Author</th>
+                        </tr>
+                        <tr>
+                          <td><span class="details"><%= author[i] %></span></td>
+                        </tr>
+                      <% } %>
+                        <% if(ISBN[i] == "not available"){ %>
+                              <%# do nothing %>
+                        <% }else if(ISBN[i][1] == undefined){ %>
+                            <tr>
+                              <th>ISBN</th>
+                            </tr>
+                            <tr>
+                              <td><span class="details"><%= ISBN[i][0].identifier %></span></td>
+                            </tr>
+                        <% }else{ %>
+                          <tr>
+                            <th>ISBN</th>
+                          </tr>
+                          <tr>
+                            <td><span class="details"><%= ISBN[i][0].identifier %>, <%= ISBN[i][1].identifier %></span></td>
+                          </tr>
+                        <% } %>
+                          <% if(publisher[i] != "not available"){ %>
+                            <tr>
+                              <th>Publisher</th>
+                            </tr>
+                            <tr>
+                              <td><span><%= publisher[i] %></span></td>
+                            </tr>
+                          <% } %>
+                          <% if(dateOfPublishing[i] == 'not available'){ %>
+                            <tr>
+                              <th>Publishing Date</th>
+                            </tr>
+                            <tr>
+                              <td><span>not available</span></td>
+                            </tr>
+                          <% }else{ %>
+                            <tr>
+                              <th>Publishing Date</th>
+                            </tr>
+                            <tr>
+                            <tr>
+                              <td><span><%= dateOfPublishing[i] %></span></td>
+                            </tr>
+                          <% } %>
+                          <% if(pages[i] != undefined){ %>
+                            <tr>
+                              <th>Pages</th>
+                            </tr>
+                            <tr>
+                              <td><span><%= pages[i] %></span></td>
+                            </tr>
+                          <% } %>
+                        <tr>
+                          <% if(bookSaleability[i] == "FOR_SALE"){ %>
+                            <td><a id="buyLink" href="<%= buyLink[i] %>">Buy Book</a></td>
+                          <% }else if(bookSaleability[i] == "FOR_SALE_AND_RENTAL"){ %>
+                            <td><a id="buyLink" href="<%= buyLink[i] %>">Buy or Rent</a></td>
+                          <% }else if(bookSaleability[i] == "FREE"){ %>
+                            <td><a id="buyLink" href="<%= buyLink[i] %>">Get it for FREE</a></td>
+                          <% }else{ %>
+                              <%# do nothing %>
+                          <% } %>
+                        </tr>
+                        <tr>
+                          <td><a id="bookLink" href="<%= bookLinks[i] %>">More about this book</a></td>
+                        </tr>
+                    </table>
+                  </div>
+                </div>
+            </div>
+        <% } %>
+      </div>
+  </div>
+
+<div class="bottomWrapper">
+    <form action="/books" method="post">
+      <input type="hidden" name="bookTitle" value="<%= bookTitle %>" placeholder="Search">
+      <button class="leftButton btn btn-light" type="submit" name="leftButton_books_page" value="Go back">Go Back</button>
+    </form>
+    <form action="/books" method="post">
+      <input type="hidden" name="bookTitle" value="<%= bookTitle %>" placeholder="Search">
+      <button class="rightButton btn btn-light" type="submit" name="rightButton_books_page" value="Search for more">Search for more</button>
+    </form>
+</div>
+
+<footer class="footer-books-page">
+  <p class="footer-p">Website by <em>Mohammed Taha</em></p>
+</footer>
+
+<%- include('footer') %>

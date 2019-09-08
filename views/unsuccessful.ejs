@@ -1,0 +1,68 @@
+<%- include('header') -%>
+
+<body class="body-unsuccessful-page">
+
+  <div class="top-wrapper">
+    <div class="top-wrapper-container">
+      <div class="header-wrapper">
+        <header>
+          <a href="https://find-your-book.herokuapp.com/">Book Finder</a>   <!-- use following link when running app on local host: http://localhost:3000/ -->
+        </header>
+      </div>
+      <div class="book-options-bar" id="bookOptionsBar">
+        <div class="searchBar">
+          <form class="top-form" action="/books" method="post">
+            <input type="text" class="textField textField-books" name="bookTitle" value="<%= bookTitle %>" placeholder="Search" required>
+            <button type="submit" class="searchButton fas fa-search" name="searchButton_books_page" value="Search"></button>
+          </form>
+        </div>
+        <div class="book-options-wrapper">
+          <div class="bookType book-options">
+            <form class="form1" action="/books" method="post">
+              <input type="text" name="bookTitle" value="<%= bookTitle %>" hidden>
+              <select class="dropDown dropDown1" name="bookOptions">
+                <option value="anyBook">Any Books</option>
+                <option value="free-ebooks">Free Books</option>
+                <option value="paid-ebooks">Paid Books</option>
+                <option value="eBooks">eBooks</option>
+              </select>
+            </form>
+          </div>
+          <div class="documentType book-options">
+            <form class="form2" action="/books" method="post">
+              <input type="text" name="bookTitle" value="<%= bookTitle %>" hidden>
+              <select class="dropDown dropDown2" name="bookOptions">
+                <option value="all">Any document</option>
+                <option value="magazines">Magazines</option>
+                <option value="books">Books</option>
+              </select>
+            </form>
+          </div>
+          <div class="bookSort book-options">
+            <form class="form3" action="/books" method="post">
+              <input type="text" name="bookTitle" value="<%= bookTitle %>" hidden>
+              <select class="dropDown dropDown3" name="bookOptions">
+                <option value="relevance">Sorted by relevance</option>
+                <option value="newest">Sorted by date</option>
+              </select>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <% if(unsuccessful == "error"){ %>
+        <h1>Something went wrong! Please try again</h1>
+  <% }else if(unsuccessful == "book not available"){ %>
+        <h1>Sorry! <strong><%= bookTitle %></strong> did not match any book result</h1>
+  <% }else if(unsuccessful == "statusCode 400"){ %>
+        <h1>Please enter book name in search feild</h1>
+  <% }else{ %>
+        <h1>Error <%= badStatusCode %></h1>
+  <% } %>
+
+  <footer class="footer">
+    <p class="footer-p">Website by <em>Mohammed Taha</em></p>
+  </footer>
+
+<%- include('footer') -%>
