@@ -1,4 +1,4 @@
-[**BookFinder**](https://find-your-book.herokuapp.com) is a web application that performs book search for any available book title.
+[**BookFinder**](https://findyourbook.herokuapp.com/) is a web application that performs book search for any available book title.
 
 **Main feature of BookFinder:**
 -	Interacting with Google Books API 
